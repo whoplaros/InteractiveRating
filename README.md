@@ -1,0 +1,2 @@
+# InteractiveRating
+ component for ratings
