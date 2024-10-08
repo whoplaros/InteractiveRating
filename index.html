@@ -65,24 +65,27 @@
 				line-height: 1;
 			}
 			.ratings {
-				list-style-type: none;
-				margin: 32px 0;
-				padding: 0;
-				display: flex;
-				justify-content: space-between;
+				display: grid;
+				grid-auto-columns: auto;
 			}
-			.ratings li {
+			.rating {
+				display: none;
+			}
+			.label-radio {
 				background-color: #262e38;
-				width: 48px;
-				height: 48px;
+				width: 51px;
+				height: 51px;
 				border-radius: 90px;
 				position: relative;
-				line-height: 48px;
+				grid-row: 1;
 				font-size: 16px;
 				font-weight: 700;
+				text-align: center;
+
 				cursor: pointer;
 				transition: all 0.2s ease;
 			}
+			/*
 			.ratings li:hover {
 				background-color: hsl(25, 97%, 53%);
 				color: #131518;
@@ -91,20 +94,15 @@
 				background-color: #fff;
 				color: #131518;
 			}
-			.number {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				line-height: 1;
-			}
+			
+			}*/
 			.submit {
 				background-color: hsl(25, 97%, 53%);
 				color: #131518;
 				font-weight: 700;
 				font-size: 15px;
 				letter-spacing: 2px;
-				width: 100%;
+				grid-row: 2 / span 6;
 				border-radius: 23px;
 				height: 45px;
 				cursor: pointer;
@@ -163,14 +161,17 @@
 					Please let us know how we did with your support request. All feedback
 					is appreciated to help us improve our offering!
 				</p>
-				<form>
-					<ul class="ratings">
-						<li><span class="number">1</span></li>
-						<li><span class="number">2</span></li>
-						<li><span class="number">3</span></li>
-						<li><span class="number">4</span></li>
-						<li><span class="number">5</span></li>
-					</ul>
+				<form action="" class="ratings">
+					<input type="radio" name="rating" id="1" class="rating" value="1" />
+					<label for="1" class="label-radio">1</label>
+					<input type="radio" name="rating" id="2" class="rating" value="2" />
+					<label for="2" class="label-radio">2</label>
+					<input type="radio" name="rating" id="3" class="rating" value="3" />
+					<label for="3" class="label-radio">3</label>
+					<input type="radio" name="rating" id="4" class="rating" value="4" />
+					<label for="4" class="label-radio">4</label>
+					<input type="radio" name="rating" id="5" class="rating" value="5" />
+					<label for="5" class="label-radio">5</label>
 					<input type="submit" value="SUBMIT" class="submit" />
 				</form>
 			</div>
