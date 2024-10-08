@@ -37,10 +37,11 @@
 			}
 
 			.container {
-				width: 40vw;
+				max-width: 412px;
+				min-width: 327px;
 				display: block;
 				margin: 5em auto;
-				padding: 2em;
+				padding: 2em 2.5em;
 				border-radius: 30px;
 				background: rgb(35, 42, 52);
 				background: radial-gradient(
@@ -64,45 +65,45 @@
 				transform: translate(-50%, -50%);
 				line-height: 1;
 			}
-			.ratings {
-				display: grid;
-				grid-auto-columns: auto;
+			.rating-options {
+				display: flex;
+				justify-content: space-between;
+				margin: 20px 0;
 			}
 			.rating {
 				display: none;
 			}
-			.label-radio {
-				background-color: #262e38;
+			.rating-options input + span {
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
 				width: 51px;
 				height: 51px;
-				border-radius: 90px;
-				position: relative;
-				grid-row: 1;
-				font-size: 16px;
+				border-radius: 50%;
+				background-color: #262e38;
+				font-size: 18px;
 				font-weight: 700;
-				text-align: center;
-
+				line-height: 51px;
 				cursor: pointer;
 				transition: all 0.2s ease;
 			}
-			/*
-			.ratings li:hover {
+
+			.rating-options input:hover + span {
 				background-color: hsl(25, 97%, 53%);
 				color: #131518;
 			}
-			.ratings li::selection {
+			.rating-options input:checked + span {
 				background-color: #fff;
 				color: #131518;
 			}
-			
-			}*/
+
 			.submit {
 				background-color: hsl(25, 97%, 53%);
 				color: #131518;
 				font-weight: 700;
 				font-size: 15px;
 				letter-spacing: 2px;
-				grid-row: 2 / span 6;
+				width: 100%;
 				border-radius: 23px;
 				height: 45px;
 				cursor: pointer;
@@ -128,8 +129,6 @@
 				width: 193px;
 				font-size: 15px;
 				padding: 6px 6px;
-			}
-			.thank-you-text-container {
 			}
 
 			.attribution {
@@ -161,17 +160,54 @@
 					Please let us know how we did with your support request. All feedback
 					is appreciated to help us improve our offering!
 				</p>
-				<form action="" class="ratings">
-					<input type="radio" name="rating" id="1" class="rating" value="1" />
-					<label for="1" class="label-radio">1</label>
-					<input type="radio" name="rating" id="2" class="rating" value="2" />
-					<label for="2" class="label-radio">2</label>
-					<input type="radio" name="rating" id="3" class="rating" value="3" />
-					<label for="3" class="label-radio">3</label>
-					<input type="radio" name="rating" id="4" class="rating" value="4" />
-					<label for="4" class="label-radio">4</label>
-					<input type="radio" name="rating" id="5" class="rating" value="5" />
-					<label for="5" class="label-radio">5</label>
+				<form action="">
+					<div class="rating-options">
+						<label>
+							<input
+								type="radio"
+								name="rating"
+								id="1"
+								class="rating"
+								value="1"
+							/>
+							<span>1</span>
+						</label>
+						<label>
+							<input
+								type="radio"
+								name="rating"
+								id="2"
+								class="rating"
+								value="2"
+							/><span>2</span>
+						</label>
+						<label>
+							<input
+								type="radio"
+								name="rating"
+								id="3"
+								class="rating"
+								value="3"
+							/><span>3</span>
+						</label>
+						<label>
+							<input
+								type="radio"
+								name="rating"
+								id="4"
+								class="rating"
+								value="4"
+							/><span>4</span> </label
+						><label>
+							<input
+								type="radio"
+								name="rating"
+								id="5"
+								class="rating"
+								value="5"
+							/><span>5</span>
+						</label>
+					</div>
 					<input type="submit" value="SUBMIT" class="submit" />
 				</form>
 			</div>
