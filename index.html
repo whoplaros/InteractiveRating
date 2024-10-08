@@ -37,7 +37,7 @@
 			}
 
 			.container {
-				max-width: 412px;
+				max-width: 400px;
 				min-width: 327px;
 				display: block;
 				margin: 5em auto;
@@ -50,7 +50,9 @@
 					rgba(24, 30, 39, 1) 100%
 				);
 			}
-
+			.rate-us-card {
+				display: block;
+			}
 			.star-icon {
 				background-color: #262e38;
 				width: 48px;
@@ -160,7 +162,7 @@
 					Please let us know how we did with your support request. All feedback
 					is appreciated to help us improve our offering!
 				</p>
-				<form action="">
+				<form action="" id="rating-form">
 					<div class="rating-options">
 						<label>
 							<input
@@ -208,7 +210,7 @@
 							/><span>5</span>
 						</label>
 					</div>
-					<input type="submit" value="SUBMIT" class="submit" />
+					<input type="submit" value="SUBMIT" class="submit" id="submit" />
 				</form>
 			</div>
 
@@ -338,5 +340,14 @@
 				<a href="https://asyouwishratingcomponent.netlify.app/">Netlify</a>.
 			</div>
 		</footer>
+		<script>
+			function submitRating(event) {
+				if (event.target.value) {
+					console.log("yes");
+				}
+			}
+			let ratingSelect = document.querySelector("#submit");
+			ratingSelect.addEventListener("submit", submitRating);
+		</script>
 	</body>
 </html>
