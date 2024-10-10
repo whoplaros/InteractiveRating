@@ -14,7 +14,7 @@
 			rel="icon"
 			type="image/png"
 			sizes="32x32"
-			href="./images/favicon-32x32.png"
+			href="images/favicon-32x32.png"
 		/>
 
 		<title>Frontend Mentor | Interactive rating component</title>
@@ -146,7 +146,7 @@
 		<div class="container" id="container">
 			<!-- Rating state start -->
 
-			<div class="rate-us-card">
+			<div class="rate-us-card" id="rate-us-card">
 				<div class="star-icon">
 					<span role="img" aria-label="rating star" class="star">
 						<svg width="17" height="16" xmlns="http://www.w3.org/2000/svg">
@@ -210,7 +210,12 @@
 							/><span>5</span>
 						</label>
 					</div>
-					<input type="submit" value="SUBMIT" class="submit" id="submit" />
+					<input
+						type="submit"
+						value="SUBMIT"
+						class="submit"
+						id="submit-button"
+					/>
 				</form>
 			</div>
 
@@ -218,7 +223,7 @@
 
 			<!-- Thank you state start -->
 
-			<div class="thank-you-card">
+			<div class="thank-you-card" id="thank-you-card">
 				<div class="thank-you-image">
 					<span role="img" aria-label="interaction image"
 						><svg width="162" height="108" xmlns="http://www.w3.org/2000/svg">
@@ -311,7 +316,7 @@
 							</g></svg
 					></span>
 				</div>
-				<div class="selection-report">
+				<div class="selection-report" id="selection-report">
 					You selected x
 					<!-- Add rating here -->
 					out of 5
@@ -341,13 +346,32 @@
 			</div>
 		</footer>
 		<script>
-			function submitRating(event) {
-				if (event.target.value) {
-					console.log("yes");
-				}
+			const form = document.getElementById("rating-form");
+			const ratingBtns = document.querySelectorAll(".rating");
+			let selectedRating;
+
+			function logSelectedRating(event) {
+				selectedRating = event.target.value;
+				console.log(selectedRating);
 			}
-			let ratingSelect = document.querySelector("#submit");
-			ratingSelect.addEventListener("submit", submitRating);
+
+			ratingBtns.forEach((btn) => {
+				btn.addEventListener("click", logSelectedRating);
+			});
+
+			function loadThanks(event) {
+				event.preventDefault();
+				if (!selectedRating) {
+					alert("Please select a rating before submitting.");
+					return;
+				}
+				document.getElementById("thank-you-card").style.display = "block";
+				document.getElementById("rate-us-card").style.display = "none";
+				document.getElementById(
+					"selection-report"
+				).innerHTML = `You selected ${selectedRating} out of 5`;
+			}
+			form.addEventListener("submit", loadThanks);
 		</script>
 	</body>
 </html>
